@@ -1,0 +1,1 @@
+json.partial! "fitments/fitment", fitment: @fitment

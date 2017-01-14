@@ -1,0 +1,2 @@
+module VehicleSubmodelsHelper
+end

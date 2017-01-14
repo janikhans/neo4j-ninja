@@ -1,0 +1,1 @@
+json.array! @vehicle_years, partial: 'vehicle_years/vehicle_year', as: :vehicle_year

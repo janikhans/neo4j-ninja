@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fitments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Part</th>
+      <th>Vehicle</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fitments.each do |fitment| %>
+      <tr>
+        <td><%= fitment.part %></td>
+        <td><%= fitment.vehicle %></td>
+        <td><%= link_to 'Show', fitment %></td>
+        <td><%= link_to 'Edit', edit_fitment_path(fitment) %></td>
+        <td><%= link_to 'Destroy', fitment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fitment', new_fitment_path %>

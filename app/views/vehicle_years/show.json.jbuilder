@@ -1,0 +1,1 @@
+json.partial! "vehicle_years/vehicle_year", vehicle_year: @vehicle_year

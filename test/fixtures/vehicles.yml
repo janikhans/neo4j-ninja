@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vehicle_submodel: one
+  vehicle_year: one
+  name: MyString
+
+two:
+  vehicle_submodel: two
+  vehicle_year: two
+  name: MyString

@@ -1,0 +1,1 @@
+json.array! @vehicle_submodels, partial: 'vehicle_submodels/vehicle_submodel', as: :vehicle_submodel
