@@ -4,6 +4,14 @@ class Vehicle < ApplicationRecord
   has_many :fitments
   has_many :oem_parts, through: :fitments, source: :part
 
+  def self.build_neo_nodes
+    all.each do |vehicle|
+      node = NeoVehicle.create(vehicle_id: vehicle.id)
+      NeoVehicleYear.find_by(vehicle_year_id: vehicle.vehicle_year_id).neo_vehicles << node
+      NeoVehicleSubmodel.find_by(vehicle_submodel_id: vehicle.vehicle_submodel_id).neo_vehicles << node
+    end
+  end
+
   def self.find_with_specs(brand, model, year, submodel = nil)
     _brand = Brand.where('lower(name) = ?', brand.downcase).first
     return nil unless _brand

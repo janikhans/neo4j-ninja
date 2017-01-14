@@ -15,3 +15,6 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore neo4j development
+/db/neo4j/development

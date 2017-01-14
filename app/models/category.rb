@@ -9,4 +9,11 @@ class Category < ApplicationRecord
     class_name: "Category",
     foreign_key: "parent_id",
     required: false
+
+  def self.build_neo_nodes
+    all.each do |category|
+      node = NeoCategory.create(category_id: category.id, name: category.name)
+      NeoCategory.find_by(category_id: category.parent_id).subcategories << node unless category.parent_id.nil?
+    end
+  end
 end

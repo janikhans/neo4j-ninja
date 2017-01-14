@@ -8,4 +8,10 @@ class VehicleType < ApplicationRecord
     class_name: "VehicleType",
     foreign_key: "parent_id",
     required: false
+
+  def self.build_neo_nodes
+    all.each do |vehicle_type|
+      NeoVehicleType.create(vehicle_type_id: vehicle_type.id, name: vehicle_type.name)
+    end
+  end
 end
