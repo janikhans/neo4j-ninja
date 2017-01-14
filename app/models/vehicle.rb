@@ -19,4 +19,36 @@ class Vehicle < ApplicationRecord
     return nil unless _year
     _submodel.vehicles.where(vehicle_year_id: _year.id).first
   end
+
+  def year
+    vehicle_year.year.to_s
+  end
+
+  def brand
+    vehicle_submodel.vehicle_model.brand
+  end
+
+  def model
+    vehicle_submodel.vehicle_model
+  end
+
+  def submodel
+    vehicle_submodel
+  end
+
+  def type
+    vehicle_submodel.vehicle_model.vehicle_type
+  end
+
+  def submodel_name
+    vehicle_submodel.try(:name)
+  end
+
+  def to_label
+    if submodel_name
+      "#{year} #{brand_name} #{model_name} #{submodel_name}"
+    else
+      "#{year} #{brand_name} #{model_name}"
+    end
+  end
 end

@@ -1,29 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-12">
+	<div class="content-box-large">
+		<div class="panel-heading">
+		<div class="panel-title">Vehicle Submodels</div>
 
-<h1>Vehicle Submodels</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Vehicle model</th>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @vehicle_submodels.each do |vehicle_submodel| %>
-      <tr>
-        <td><%= vehicle_submodel.vehicle_model %></td>
-        <td><%= vehicle_submodel.name %></td>
-        <td><%= link_to 'Show', vehicle_submodel %></td>
-        <td><%= link_to 'Edit', edit_vehicle_submodel_path(vehicle_submodel) %></td>
-        <td><%= link_to 'Destroy', vehicle_submodel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Vehicle Submodel', new_vehicle_submodel_path %>
+		<div class="panel-options">
+      <%= link_to 'New Vehicle Submodel', new_vehicle_submodel_path %>
+			<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+			<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+		</div>
+	</div>
+		<div class="panel-body">
+			<table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Vehicle Model</th>
+            <th>Name</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @vehicle_submodels.each do |vehicle_submodel| %>
+            <tr>
+              <td><%= vehicle_submodel.id %></td>
+              <td><%= vehicle_submodel.vehicle_model.name %></td>
+              <td><%= vehicle_submodel.name %></td>
+              <td><%= link_to 'Show', vehicle_submodel %></td>
+              <td><%= link_to 'Edit', edit_vehicle_submodel_path(vehicle_submodel) %></td>
+              <td><%= link_to 'Destroy', vehicle_submodel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+		</div>
+	</div>
+</div>
