@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+bundle install
+rake db:create
+rake db:migrate
+rake db:seed
 
-Things you may want to cover:
+For neo4j information http://neo4jrb.readthedocs.io/en/7.2.x/
 
-* Ruby version
+download and install new neo4j server rake neo4j:install[community-latest,development]
+Starting the neo4j server: rake neo4j:start[development]
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+visit http://localhost:7474/browser/ to have access to neo4j server
