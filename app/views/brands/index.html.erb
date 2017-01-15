@@ -1,7 +1,7 @@
 <div class="col-md-12">
 	<div class="content-box-large">
 		<div class="panel-heading">
-		<div class="panel-title">Brands</div>
+		<div class="panel-title">PG Brands</div>
 
 		<div class="panel-options">
       <%= link_to 'New Brand', new_brand_path %>
@@ -26,6 +26,37 @@
               <td><%= link_to 'Show', brand %></td>
               <td><%= link_to 'Edit', edit_brand_path(brand) %></td>
               <td><%= link_to 'Destroy', brand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-12">
+	<div class="content-box-large">
+		<div class="panel-heading">
+		<div class="panel-title">NEO Brands</div>
+
+		<div class="panel-options">
+			<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+			<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+		</div>
+	</div>
+		<div class="panel-body">
+			<table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @neo_brands.each do |brand| %>
+            <tr>
+              <td><%= brand.id %></td>
+              <td><%= brand.name %></td>
             </tr>
           <% end %>
         </tbody>

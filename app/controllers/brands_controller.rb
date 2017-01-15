@@ -4,7 +4,8 @@ class BrandsController < ApplicationController
   # GET /brands
   # GET /brands.json
   def index
-    @brands = Brand.all
+    @brands = Brand.all.order(id: :asc)
+    @neo_brands = NeoBrand.all
   end
 
   # GET /brands/1
