@@ -3,7 +3,9 @@ class CreateVehicles < ActiveRecord::Migration[5.0]
     create_table :vehicles do |t|
       t.references :vehicle_submodel, foreign_key: true
       t.references :vehicle_year, foreign_key: true
-      t.string :name
+      t.integer :epid, index: true
+      t.integer :displacement
+      t.string :displacement_units
 
       t.timestamps
     end

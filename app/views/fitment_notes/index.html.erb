@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fitment Notes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Parent</th>
+      <th>Used for search</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fitment_notes.each do |fitment_note| %>
+      <tr>
+        <td><%= fitment_note.name %></td>
+        <td><%= fitment_note.parent_id %></td>
+        <td><%= fitment_note.used_for_search %></td>
+        <td><%= link_to 'Show', fitment_note %></td>
+        <td><%= link_to 'Edit', edit_fitment_note_path(fitment_note) %></td>
+        <td><%= link_to 'Destroy', fitment_note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fitment Note', new_fitment_note_path %>

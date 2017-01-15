@@ -1,0 +1,1 @@
+json.array! @part_attributes, partial: 'part_attributes/part_attribute', as: :part_attribute

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  part_attribute: one
+  part: one
+
+two:
+  part_attribute: two
+  part: two

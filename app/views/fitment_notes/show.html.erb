@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @fitment_note.name %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @fitment_note.parent_id %>
+</p>
+
+<p>
+  <strong>Used for search:</strong>
+  <%= @fitment_note.used_for_search %>
+</p>
+
+<%= link_to 'Edit', edit_fitment_note_path(@fitment_note) %> |
+<%= link_to 'Back', fitment_notes_path %>

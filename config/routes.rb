@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :fitment_notes
+  resources :part_attributes
   root to: "pages#index"
 
   resources :vehicle_types

@@ -1,0 +1,1 @@
+json.array! @fitment_notes, partial: 'fitment_notes/fitment_note', as: :fitment_note

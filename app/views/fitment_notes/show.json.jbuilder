@@ -1,0 +1,1 @@
+json.partial! "fitment_notes/fitment_note", fitment_note: @fitment_note

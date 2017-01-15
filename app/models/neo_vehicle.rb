@@ -3,7 +3,7 @@ class NeoVehicle
 
   id_property :vehicle_id
   property :displacement, type: Integer
-  property :displacement_unit, type: String, default: "cc"
+  property :displacement_units, type: String, default: "cc"
   property :created_at
   property :updated_at
 

@@ -1,0 +1,1 @@
+json.partial! "part_attributes/part_attribute", part_attribute: @part_attribute
