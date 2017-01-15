@@ -51,10 +51,11 @@ class PartForm
       if @attributes
         @attributes.each do |a|
           parent_attribute = PartAttribute.where('lower(name) = ?', a[:parent_attribute].downcase).first_or_create!(name: a[:parent_attribute])
-          part_attribute = parent_attribute.attribute_variations.where('lower(name) = ?', a[:attribute].downcase).first_or_create!(name: a[:attribute])
+          part_attribute = parent_attribute.variations.where('lower(name) = ?', a[:attribute].downcase).first_or_create!(name: a[:attribute])
           part_attribution = @part.part_attributions.create(part_attribute: part_attribute)
         end
       end
+      return @part
     else
       return false
     end

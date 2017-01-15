@@ -49,6 +49,40 @@ wheel_sub.each do |name|
 end
 
 #----------------------------#
+#Part attributes
+
+["Rim Size", "Color"].each do |name|
+  PartAttribute.create(name: name)
+end
+
+color_variations = ["Black", "Red"]
+rim_size_variations = ["19", "21", "18"]
+
+color_variations.each do |name|
+  PartAttribute.create(name: name, parent: PartAttribute.find_by(name: "Color"))
+end
+rim_size_variations.each do |name|
+  PartAttribute.create(name: name, parent: PartAttribute.find_by(name: "Rim Size"))
+end
+
+#----------------------------#
+# Fitment Notes
+
+["Location", "Quantity"].each do |name|
+  FitmentNote.create(name: name)
+end
+
+location_variations = ["Front", "Rear"]
+quantity_variations = ["1", "2", "4"]
+
+location_variations.each do |name|
+  FitmentNote.create(name: name, parent: FitmentNote.find_by(name: "Location"))
+end
+quantity_variations.each do |name|
+  FitmentNote.create(name: name, parent: FitmentNote.find_by(name: "Quantity"))
+end
+
+#----------------------------#
 # VehicleModels/ VehicleSubmodels / Vehicles
 
 yz250 = VehicleForm.new(model: "YZ250", year: 2006, brand: "Yamaha", type: "Motorcycle").save
@@ -69,12 +103,20 @@ silverado = VehicleForm.new(model: "2500", year: 2000, brand: "chevroLET", submo
 
 #----------------------------#
 # Parts / Products / Fitments
-part1 = PartForm.new(brand: "Yamaha", product_name: "OEM Wheel Kit", part_number: "fwyz25006", root_category: "Wheels", category: "Complete Wheel Assembly", vehicle: yz250).save
-part2 = PartForm.new(brand: "Yamaha", product_name: "OEM Wheel Kit", part_number: "fwyz25004", root_category: "Wheels", category: "Complete Wheel Assembly", vehicle: yz25004).save
-part3 = PartForm.new(brand: "Yamaha", product_name: "OEM Wheel Kit", part_number: "fwyz25008", root_category: "Wheels", category: "Complete Wheel Assembly", vehicle: yz25008).save
-part4 = PartForm.new(brand: "Yamaha", product_name: "OEM Wheel Kit", part_number: "fwyz12505", root_category: "Wheels", category: "Complete Wheel Assembly", vehicle: yz125).save
+part1 = PartForm.new(brand: "Yamaha", product_name: "OEM Wheel Kit", part_number: "fwyz25006", root_category: "Wheels", category: "Complete Wheel Assembly", vehicle: yz250, attributes: [{parent_attribute: "Color", attribute: "Silver"}, {parent_attribute: "Rim Size", attribute: "21"}]).save
+part2 = PartForm.new(brand: "Yamaha", product_name: "OEM Wheel Kit", part_number: "fwyz25004", root_category: "Wheels", category: "Complete Wheel Assembly", vehicle: yz25004, attributes: [{parent_attribute: "Color", attribute: "Silver"}]).save
+part3 = PartForm.new(brand: "Yamaha", product_name: "OEM Wheel Kit", part_number: "fwyz25008", root_category: "Wheels", category: "Complete Wheel Assembly", vehicle: yz25008, attributes: [{parent_attribute: "Color", attribute: "Black"}]).save
+part4 = PartForm.new(brand: "Yamaha", product_name: "OEM Wheel Kit", part_number: "fwyz12505", root_category: "Wheels", category: "Complete Wheel Assembly", vehicle: yz125, attributes: [{parent_attribute: "Rim Size", attribute: "21"}]).save
 part5 = PartForm.new(brand: "Yamaha", product_name: "OEM Wheel Kit", part_number: "fwwr45012", root_category: "Wheels", category: "Complete Wheel Assembly", vehicle: wr450).save
 part6 = PartForm.new(brand: "Yamaha", product_name: "OEM Wheel Kit", part_number: "fwwr42602", root_category: "Wheels", category: "Complete Wheel Assembly", vehicle: wr426).save
-part7 = PartForm.new(brand: "Yamaha", product_name: "OEM Wheel Kit", part_number: "fwyz250F11", root_category: "Wheels", category: "Complete Wheel Assembly", vehicle: yz250f).save
-part8 = PartForm.new(brand: "Yamaha", product_name: "OEM Wheel Kit", part_number: "fwwr25009", root_category: "Wheels", category: "Complete Wheel Assembly", vehicle: wr250).save
-part9 = PartForm.new(brand: "Acerbis", product_name: "Chain Guide v1.0", part_number: "217909", root_category: "Body", category: "Chain Guides", vehicle: rmz450).save
+part7 = PartForm.new(brand: "Yamaha", product_name: "OEM Wheel Kit", part_number: "fwyz250F11", root_category: "Wheels", category: "Complete Wheel Assembly", vehicle: yz250f, attributes: [{parent_attribute: "Color", attribute: "Black"}]).save
+part8 = PartForm.new(brand: "Yamaha", product_name: "OEM Wheel Kit", part_number: "fwwr25009", root_category: "Wheels", category: "Complete Wheel Assembly", vehicle: wr250, attributes: [{parent_attribute: "Color", attribute: "Blue"}]).save
+part9 = PartForm.new(brand: "Acerbis", product_name: "Chain Guide v1.0", part_number: "217909", root_category: "Body", category: "Chain Guides", vehicle: rmz450, attributes: [{parent_attribute: "Color", attribute: "Yellow"}]).save
+
+#----------------------------#
+# Other
+
+Fitment.update_all(source: 1)
+Fitment.find_by(vehicle: yz250, part: part1).fitment_notations.create(fitment_note: FitmentNote.find_by(name: "Front"))
+Fitment.find_by(vehicle: yz25004, part: part2).fitment_notations.create(fitment_note: FitmentNote.find_by(name: "Front"))
+Fitment.find_by(vehicle: yz25008, part: part3).fitment_notations.create(fitment_note: FitmentNote.find_by(name: "Front"))

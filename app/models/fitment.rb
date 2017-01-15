@@ -1,6 +1,10 @@
 class Fitment < ApplicationRecord
   belongs_to :part
   belongs_to :vehicle
+  has_many :fitment_notations, dependent: :destroy
+  has_many :fitment_notes, through: :fitment_notations, source: :fitment_note
+
+  enum source: [:user, :ebay]
 
   def self.build_neo_nodes
     all.each do |fitment|
