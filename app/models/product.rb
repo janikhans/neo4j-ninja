@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  include NeoNodeable
   belongs_to :brand
   belongs_to :category
   has_many :parts

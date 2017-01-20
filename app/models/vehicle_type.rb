@@ -1,4 +1,5 @@
 class VehicleType < ApplicationRecord
+  include NeoNodeable
   has_many :subtypes,
     class_name: "VehicleType",
     foreign_key: "parent_id",

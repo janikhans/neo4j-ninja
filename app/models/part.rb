@@ -1,4 +1,5 @@
 class Part < ApplicationRecord
+  include NeoNodeable
   belongs_to :product
   has_many :fitments
   has_many :oem_vehicles, through: :fitments, source: :vehicle
@@ -9,6 +10,9 @@ class Part < ApplicationRecord
     all.each do |part|
       node = NeoPart.create(part_id: part.id, part_number: part.part_number)
       NeoProduct.find_by(product_id: part.product_id).neo_parts << node
+      part.part_attributes.each do |attribute|
+        NeoPartAttribute.find_by(part_attribute_id: attribute.id).neo_parts << node
+      end
     end
   end
 end

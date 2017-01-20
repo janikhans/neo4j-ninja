@@ -1,4 +1,5 @@
 class VehicleSubmodel < ApplicationRecord
+  include NeoNodeable
   belongs_to :vehicle_model
   has_many :vehicles
 

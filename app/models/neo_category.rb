@@ -7,5 +7,5 @@ class NeoCategory
   property :updated_at
 
   has_many :out, :subcategories, type: :HAS_SUBCATEGORY, model_class: :NeoCategory
-  has_many :out, :neo_products, type: :HAS_PRODUCT
+  has_many :out, :neo_products, type: :HAS_CATEGORY_PRODUCT
 end

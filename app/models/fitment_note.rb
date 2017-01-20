@@ -1,6 +1,7 @@
 class FitmentNote < ApplicationRecord
+  scope :leaves, -> { where.not(parent_id: nil)}
   validates :name, presence: true
-  
+
   has_many :fitment_notations, dependent: :destroy
 
   has_many :variations,

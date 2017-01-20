@@ -8,6 +8,8 @@ namespace :neo4j do
     puts "Created VehicleYear Nodes"
     Category.build_neo_nodes
     puts "Created Category Nodes"
+    PartAttribute.build_neo_nodes
+    puts "Created Part Attribute Nodes"
     Brand.build_neo_nodes
     puts "Created Brand Nodes"
     VehicleModel.build_neo_nodes
@@ -21,6 +23,6 @@ namespace :neo4j do
     Part.build_neo_nodes
     puts "Created Part Nodes"
     Fitment.build_neo_nodes
-    puts "Created Fitment Relationships"
+    puts "Created Fitment Nodes"
   end
 end

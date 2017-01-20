@@ -6,5 +6,5 @@ class NeoVehicleYear
   property :created_at
   property :updated_at
 
-  has_many :out, :neo_vehicles, type: :HAS_VEHICLE
+  has_many :out, :neo_vehicles, type: :HAS_YEAR_VEHICLE
 end

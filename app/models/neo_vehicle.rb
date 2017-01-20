@@ -6,6 +6,6 @@ class NeoVehicle
   property :displacement_units, type: String, default: "cc"
   property :created_at
   property :updated_at
-
-  has_many :out, :neo_parts, type: :HAS_PART
+  has_many :out, :neo_fitments, type: :HAS_VEHICLE_FITMENT
+  has_one :in, :neo_vehicle_year, type: :HAS_YEAR_VEHICLE
 end

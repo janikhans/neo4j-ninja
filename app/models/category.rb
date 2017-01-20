@@ -1,4 +1,5 @@
 class Category < ApplicationRecord
+  include NeoNodeable
   has_many :products
   has_many :subcategories,
     class_name: "Category",

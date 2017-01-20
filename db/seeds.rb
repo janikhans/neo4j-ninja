@@ -118,5 +118,6 @@ part9 = PartForm.new(brand: "Acerbis", product_name: "Chain Guide v1.0", part_nu
 
 Fitment.update_all(source: 1)
 Fitment.find_by(vehicle: yz250, part: part1).fitment_notations.create(fitment_note: FitmentNote.find_by(name: "Front"))
+Fitment.find_by(vehicle: yz250, part: part1).fitment_notations.create(fitment_note: FitmentNote.find_by(name: "1"))
 Fitment.find_by(vehicle: yz25004, part: part2).fitment_notations.create(fitment_note: FitmentNote.find_by(name: "Front"))
 Fitment.find_by(vehicle: yz25008, part: part3).fitment_notations.create(fitment_note: FitmentNote.find_by(name: "Front"))

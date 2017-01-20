@@ -1,4 +1,5 @@
 class VehicleYear < ApplicationRecord
+  include NeoNodeable
   has_many :vehicles
 
   def self.build_neo_nodes

@@ -6,5 +6,5 @@ class NeoVehicleType
   property :created_at
   property :updated_at
 
-  has_many :out, :neo_vehicle_models, type: :HAS_MODEL
+  has_many :out, :neo_vehicle_models, type: :HAS_TYPE_MODEL
 end
